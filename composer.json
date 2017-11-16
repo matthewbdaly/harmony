@@ -34,5 +34,8 @@
                 "Matthewbdaly\\Harmony\\Providers\\HarmonyServiceProvider"
             ]
         }
+    },
+    "require": {
+        "league/fractal": "^0.17.0"
     }
 }
