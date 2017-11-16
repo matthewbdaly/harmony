@@ -23,4 +23,13 @@ class RestfulControllerTest extends TestCase
         $response = $controller->getQueryset();
         $this->assertEquals([], $response);
     }
+
+    public function testGetQuerysetById()
+    {
+        $repo = m::mock('Matthewbdaly\LaravelRepositories\Repositories\Interfaces\AbstractRepositoryInterface');
+        $repo->shouldReceive('findOrFail')->with(1)->once()->andReturn([]);
+        $controller = new DummyController($repo);
+        $response = $controller->getQuerysetById(1);
+        $this->assertEquals([], $response);
+    }
 }
