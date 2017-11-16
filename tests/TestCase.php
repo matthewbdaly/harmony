@@ -12,4 +12,11 @@ class TestCase extends BaseTestCase
         m::close();
         parent::tearDown();
     }
+
+    public function assertParentHasTrait($trait, $class, $message = '')
+    {
+        $parent = get_parent_class($class);
+        $traits = class_uses($parent);
+        self::assertThat(in_array($trait, $traits), self::isTrue(), $message);
+    }
 }
