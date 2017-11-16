@@ -14,4 +14,13 @@ class RestfulControllerTest extends TestCase
         $this->assertParentHasTrait('Illuminate\Foundation\Validation\ValidatesRequests', $controller);
         $this->assertParentHasTrait('Illuminate\Foundation\Auth\Access\AuthorizesRequests', $controller);
     }
+
+    public function testGetQueryset()
+    {
+        $repo = m::mock('Matthewbdaly\LaravelRepositories\Repositories\Interfaces\AbstractRepositoryInterface');
+        $repo->shouldReceive('all')->once()->andReturn([]);
+        $controller = new DummyController($repo);
+        $response = $controller->getQueryset();
+        $this->assertEquals([], $response);
+    }
 }
