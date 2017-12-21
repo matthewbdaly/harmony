@@ -6,6 +6,6 @@ trait Index
 {
     public function index()
     {
-        return $this->getQueryset();
+        return response()->json($this->getQueryset());
     }
 }

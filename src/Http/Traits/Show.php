@@ -6,6 +6,6 @@ trait Show
 {
     public function show($id)
     {
-        return $this->getQuerysetById($id);
+        return response()->json($this->getQuerysetById($id));
     }
 }

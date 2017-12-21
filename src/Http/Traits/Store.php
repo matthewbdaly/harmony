@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 
 trait Store
 {
-    public function store(Request $request)
+    public function store()
     {
-        return $this->getQueryset();
+        $request = app()->make($this->createRequest);
+        return response()->json($this->repository->create($request->all()));
     }
 }

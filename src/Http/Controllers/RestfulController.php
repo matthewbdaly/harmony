@@ -12,8 +12,11 @@ abstract class RestfulController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function __construct(AbstractRepositoryInterface $repository)
+    public function __construct(AbstractRepositoryInterface $repository = null)
     {
+        if (!$repository) {
+            $repository = app()->make($this->repository);
+        }
         $this->repository = $repository;
     }
 
