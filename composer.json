@@ -28,13 +28,6 @@
             "Tests\\": "tests/"
         }
     },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Matthewbdaly\\Harmony\\Providers\\HarmonyServiceProvider"
-            ]
-        }
-    },
     "require": {
         "league/fractal": "^0.17.0",
         "matthewbdaly/laravel-repositories": "^1.0"
