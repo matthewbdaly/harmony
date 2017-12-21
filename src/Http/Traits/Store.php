@@ -2,9 +2,11 @@
 
 namespace Matthewbdaly\Harmony\Http\Traits;
 
-trait Index
+use Illuminate\Http\Request;
+
+trait Store
 {
-    public function index()
+    public function store(Request $request)
     {
         return $this->getQueryset();
     }

@@ -22,7 +22,7 @@ abstract class RestfulController extends BaseController
         return $this->repository->all();
     }
 
-    public function getQuerysetById(int $id)
+    public function getQuerysetById($id)
     {
         return $this->repository->findOrFail($id);
     }
