@@ -17,18 +17,20 @@ class RestfulControllerTest extends TestCase
 
     public function testGetQueryset()
     {
+        $fractal = $this->app->make('League\Fractal\Manager');
         $repo = m::mock('Matthewbdaly\LaravelRepositories\Repositories\Interfaces\AbstractRepositoryInterface');
         $repo->shouldReceive('all')->once()->andReturn([]);
-        $controller = new DummyController($repo);
+        $controller = new DummyController($fractal, $repo);
         $response = $controller->getQueryset();
         $this->assertEquals([], $response);
     }
 
     public function testGetQuerysetById()
     {
+        $fractal = $this->app->make('League\Fractal\Manager');
         $repo = m::mock('Matthewbdaly\LaravelRepositories\Repositories\Interfaces\AbstractRepositoryInterface');
         $repo->shouldReceive('findOrFail')->with(1)->once()->andReturn([]);
-        $controller = new DummyController($repo);
+        $controller = new DummyController($fractal, $repo);
         $response = $controller->getQuerysetById(1);
         $this->assertEquals([], $response);
     }

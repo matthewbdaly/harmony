@@ -9,6 +9,7 @@ class IndexTest extends TestCase
 {
     public function testTraits()
     {
+        $this->markTestIncomplete();
         $mock = m::mock('Matthewbdaly\Harmony\Http\Traits\Index');
     }
 }
