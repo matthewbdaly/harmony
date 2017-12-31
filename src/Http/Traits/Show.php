@@ -6,14 +6,20 @@ use League\Fractal\Resource\Item;
 
 trait Show
 {
-    public function show($id)
+    protected function getShowData()
     {
         $resource = new Item($this->getQuerysetById($id), new $this->transformer);
-        $data = $this->fractal->createData($resource)->toArray();
+        return $this->fractal->createData($resource);
+    }
+
+    public function show($id)
+    {
+        $request = request();
+        $data = $this->getShowData();
         if ($request->ajax()) {
-            return response()->json($data);
+            return response()->json($data->toArray());
         } else {
-            return view('harmony::base', ['data' => $data]);
+            return view('harmony::base', ['data' => $data->toJson()]);
         }
     }
 }

@@ -19,7 +19,7 @@ trait Index
         if ($request->ajax()) {
             return response()->json($data);
         } else {
-            return view('harmony::base', ['data' => $data]);
+            return view('harmony::base', ['data' => $data->toJson()]);
         }
     }
 }
