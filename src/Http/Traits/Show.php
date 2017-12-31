@@ -10,6 +10,10 @@ trait Show
     {
         $resource = new Item($this->getQuerysetById($id), new $this->transformer);
         $data = $this->fractal->createData($resource)->toArray();
-        return response()->json($data);
+        if ($request->ajax()) {
+            return response()->json($data);
+        } else {
+            return view('harmony::base', ['data' => $data]);
+        }
     }
 }
