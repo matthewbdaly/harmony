@@ -9,7 +9,7 @@ trait Index
     protected function getIndexData()
     {
         $resource = new Collection($this->getQueryset(), new $this->transformer);
-        return $this->fractal->createData($resource)->toArray();
+        return $this->fractal->createData($resource);
     }
 
     public function index()
@@ -17,7 +17,7 @@ trait Index
         $request = request();
         $data = $this->getIndexData();
         if ($request->ajax()) {
-            return response()->json($data);
+            return response()->json($data->toArray());
         } else {
             return view('harmony::base', ['data' => $data->toJson()]);
         }
