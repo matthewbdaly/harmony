@@ -35,7 +35,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Matthewbdaly\Harmony\Providers\HarmonyServiceProvider"
+                "Matthewbdaly\\Harmony\\Providers\\HarmonyServiceProvider"
             ]
         }
     }
