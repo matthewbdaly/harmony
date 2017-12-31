@@ -4,14 +4,11 @@ namespace Tests;
 
 use Orchestra\Testbench\TestCase as BaseTestCase;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 
 class TestCase extends BaseTestCase
 {
-    public function tearDown()
-    {
-        m::close();
-        parent::tearDown();
-    }
+    use MockeryPHPUnitIntegration;
 
     public function assertParentHasTrait($trait, $class, $message = '')
     {
