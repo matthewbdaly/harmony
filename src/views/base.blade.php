@@ -8,4 +8,4 @@
     <body>
         <pre><code>{{ $data }}</pre></code>
     </body>
-</html>A
+</html>
