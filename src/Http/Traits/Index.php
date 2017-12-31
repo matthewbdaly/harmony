@@ -14,6 +14,6 @@ trait Index
 
     public function index()
     {
-        $this->renderResponse($this->getIndexData());
+        return $this->renderResponse($this->getIndexData());
     }
 }

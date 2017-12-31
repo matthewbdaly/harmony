@@ -14,6 +14,6 @@ trait Show
 
     public function show($id)
     {
-        $this->renderResponse($this->getShowData());
+        return $this->renderResponse($this->getShowData());
     }
 }
