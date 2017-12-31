@@ -14,12 +14,6 @@ trait Index
 
     public function index()
     {
-        $request = request();
-        $data = $this->getIndexData();
-        if ($request->ajax()) {
-            return response()->json($data->toArray());
-        } else {
-            return view('harmony::base', ['data' => $data->toJson()]);
-        }
+        $this->renderResponse($this->getIndexData());
     }
 }

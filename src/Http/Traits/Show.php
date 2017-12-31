@@ -14,12 +14,6 @@ trait Show
 
     public function show($id)
     {
-        $request = request();
-        $data = $this->getShowData();
-        if ($request->ajax()) {
-            return response()->json($data->toArray());
-        } else {
-            return view('harmony::base', ['data' => $data->toJson()]);
-        }
+        $this->renderResponse($this->getShowData());
     }
 }
