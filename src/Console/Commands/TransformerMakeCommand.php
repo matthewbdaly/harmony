@@ -29,16 +29,6 @@ class TransformerMakeCommand extends GeneratorCommand
     protected $type = 'Fractal transformer';
 
     /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-    /**
      * Get the stub file for the generator.
      *
      * @return string
