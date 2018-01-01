@@ -1,0 +1,10 @@
+<?php
+
+namespace DummyNamespace;
+
+use Matthewbdaly\Harmony\Transformers\BaseTransformer;
+
+class DummyClass extends BaseTransformer
+{
+    //
+}

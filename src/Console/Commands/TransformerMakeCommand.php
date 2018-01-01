@@ -2,9 +2,10 @@
 
 namespace Matthewbdaly\Harmony\Console\Commands;
 
-use Illuminate\Console\Command;
+use Illuminate\Console\GeneratorCommand;
+use Symfony\Component\Console\Input\InputArgument;
 
-class TransformerMakeCommand extends Command
+class TransformerMakeCommand extends GeneratorCommand
 {
     /**
      * The name and signature of the console command.
@@ -21,6 +22,13 @@ class TransformerMakeCommand extends Command
     protected $description = 'Create a Fractal transformer';
 
     /**
+     * The type of class being generated.
+     *
+     * @var string
+     */
+    protected $type = 'Fractal transformer';
+
+    /**
      * Create a new command instance.
      *
      * @return void
@@ -31,12 +39,24 @@ class TransformerMakeCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Get the stub file for the generator.
      *
-     * @return mixed
+     * @return string
      */
-    public function handle()
+    protected function getStub()
     {
-        $name = $this->argument('name');
+        return __DIR__.'/stubs/console.stub';
+    }
+
+    /**
+     * Get the console command arguments.
+     *
+     * @return array
+     */
+    protected function getArguments()
+    {
+        return [
+            ['name', InputArgument::REQUIRED, 'The name of the command.'],
+        ];
     }
 }
