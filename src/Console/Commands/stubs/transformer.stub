@@ -3,8 +3,14 @@
 namespace DummyNamespace;
 
 use Matthewbdaly\Harmony\Transformers\BaseTransformer;
+use Illuminate\Database\Eloquent\Model;
 
 class DummyClass extends BaseTransformer
 {
-    //
+    public function transform(Model $model)
+    {
+        return [
+            'id'            => (int) $model->id,
+        ];
+    }
 }
