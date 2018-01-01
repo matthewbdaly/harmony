@@ -35,7 +35,7 @@ class TransformerMakeCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__.'/stubs/console.stub';
+        return __DIR__.'/stubs/transformer.stub';
     }
 
     /**
