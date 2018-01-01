@@ -11,7 +11,7 @@ class TransformerMakeCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'make:transformer';
+    protected $signature = 'make:transformer {name : The required name of the transformer class}';
 
     /**
      * The console command description.
@@ -37,6 +37,6 @@ class TransformerMakeCommand extends Command
      */
     public function handle()
     {
-        //
+        $name = $this->argument('name');
     }
 }
