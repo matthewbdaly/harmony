@@ -49,4 +49,15 @@ class TransformerMakeCommand extends GeneratorCommand
             ['name', InputArgument::REQUIRED, 'The name of the command.'],
         ];
     }
+
+    /**
+     * Get the default namespace for the class.
+     *
+     * @param  string  $rootNamespace
+     * @return string
+     */
+    protected function getDefaultNamespace($rootNamespace)
+    {
+        return $rootNamespace.'\Transformers';
+    }
 }
