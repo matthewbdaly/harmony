@@ -12,7 +12,7 @@ class TransformerMakeCommand extends GeneratorCommand
      *
      * @var string
      */
-    protected $signature = 'make:transformer {name : The required name of the transformer class}';
+    protected $signature = 'harmony:transformer {name : The required name of the transformer class}';
 
     /**
      * The console command description.
