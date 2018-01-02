@@ -4,6 +4,7 @@ namespace Matthewbdaly\Harmony\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Matthewbdaly\Harmony\Console\Commands\TransformerMakeCommand;
+use Matthewbdaly\Harmony\Console\Commands\ControllerMakeCommand;
 
 /**
  * Service provider
@@ -19,6 +20,7 @@ class HarmonyServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
+                ControllerMakeCommand::class,
                 TransformerMakeCommand::class,
             ]);
         }
