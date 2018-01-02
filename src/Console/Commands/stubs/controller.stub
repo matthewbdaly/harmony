@@ -1,0 +1,20 @@
+<?php
+
+namespace DummyNamespace;
+
+use Illuminate\Http\Request;
+use Matthewbdaly\Harmony\Http\Controllers\RestfulController;
+use Matthewbdaly\Harmony\Http\Traits\{Index, Show, Store, Update, Delete};
+
+class DummyClass extends RestfulController
+{
+    use Index, Show, Store, Update, Delete;
+
+    protected $repository = 'Matthewbdaly\LaravelRepositories\Repositories\Interfaces\AbstractRepositoryInterface';
+
+    protected $createRequest = 'Illuminate\Http\Request';
+
+    protected $editRequest = 'Illuminate\Http\Request';
+
+    protected $transformer = 'App\Transformers\Transformer';
+}
