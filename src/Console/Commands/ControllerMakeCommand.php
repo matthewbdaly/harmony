@@ -5,6 +5,9 @@ namespace Matthewbdaly\Harmony\Console\Commands;
 use Illuminate\Console\GeneratorCommand;
 use Symfony\Component\Console\Input\InputArgument;
 
+/**
+ * Builds controllers
+ */
 class ControllerMakeCommand extends GeneratorCommand
 {
     /**
@@ -53,10 +56,10 @@ class ControllerMakeCommand extends GeneratorCommand
     /**
      * Get the default namespace for the class.
      *
-     * @param  string  $rootNamespace
+     * @param  string $rootNamespace The root namespace for the class.
      * @return string
      */
-    protected function getDefaultNamespace($rootNamespace)
+    protected function getDefaultNamespace(string $rootNamespace)
     {
         return $rootNamespace.'\Http\Controllers';
     }

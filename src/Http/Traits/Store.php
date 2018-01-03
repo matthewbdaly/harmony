@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 trait Store
 {
+    /**
+     * Create a new object
+     *
+     * @return Illuminate\Http\Response
+     */
     public function store()
     {
         $request = app()->make($this->createRequest);
