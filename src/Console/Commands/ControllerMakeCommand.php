@@ -59,7 +59,7 @@ class ControllerMakeCommand extends GeneratorCommand
      * @param  string $rootNamespace The root namespace for the class.
      * @return string
      */
-    protected function getDefaultNamespace(string $rootNamespace)
+    protected function getDefaultNamespace($rootNamespace)
     {
         return $rootNamespace.'\Http\Controllers';
     }
