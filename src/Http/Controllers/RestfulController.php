@@ -7,6 +7,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Matthewbdaly\LaravelRepositories\Repositories\Interfaces\AbstractRepositoryInterface;
+use Matthewbdaly\Harmony\Transformers\BaseTransformer;
 use League\Fractal\Manager;
 use League\Fractal\Scope;
 
@@ -20,17 +21,22 @@ abstract class RestfulController extends BaseController
     /**
      * Constructor
      *
-     * @param Manager                     $fractal    The Fractal manager instance.
-     * @param AbstractRepositoryInterface $repository The repository to use.
+     * @param Manager                     $fractal     The Fractal manager instance.
+     * @param AbstractRepositoryInterface $repository  The repository to use.
+     * @param BaseTransformer             $transformer The transformer to use.
      * @return void
      */
-    public function __construct(Manager $fractal, AbstractRepositoryInterface $repository = null)
+    public function __construct(Manager $fractal, AbstractRepositoryInterface $repository = null, BaseTransformer $transformer = null)
     {
         $this->fractal = $fractal;
         if (!$repository) {
             $repository = app()->make($this->repository);
         }
         $this->repository = $repository;
+        if (!$transformer) {
+            $transformer = app()->make($this->transformer);
+        }
+        $this->transformer = $transformer;
     }
 
     /**

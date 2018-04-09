@@ -20,7 +20,8 @@ class RestfulControllerTest extends TestCase
         $fractal = $this->app->make('League\Fractal\Manager');
         $repo = m::mock('Matthewbdaly\LaravelRepositories\Repositories\Interfaces\AbstractRepositoryInterface');
         $repo->shouldReceive('all')->once()->andReturn([]);
-        $controller = new DummyController($fractal, $repo);
+        $transformer = m::mock('Matthewbdaly\Harmony\Transformers\BaseTransformer');
+        $controller = new DummyController($fractal, $repo, $transformer);
         $response = $controller->getQueryset();
         $this->assertEquals([], $response);
     }
@@ -30,7 +31,8 @@ class RestfulControllerTest extends TestCase
         $fractal = $this->app->make('League\Fractal\Manager');
         $repo = m::mock('Matthewbdaly\LaravelRepositories\Repositories\Interfaces\AbstractRepositoryInterface');
         $repo->shouldReceive('findOrFail')->with(1)->once()->andReturn([]);
-        $controller = new DummyController($fractal, $repo);
+        $transformer = m::mock('Matthewbdaly\Harmony\Transformers\BaseTransformer');
+        $controller = new DummyController($fractal, $repo, $transformer);
         $response = $controller->getQuerysetById(1);
         $this->assertEquals([], $response);
     }
