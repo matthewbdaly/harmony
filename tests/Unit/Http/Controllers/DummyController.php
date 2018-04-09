@@ -8,4 +8,8 @@ use Matthewbdaly\Harmony\Http\Traits\{Delete, Index, Show, Store, Update};
 class DummyController extends RestfulController
 {
     use Delete, Index, Show, Store, Update;
+
+    protected $repository = "Matthewbdaly\LaravelRepositories\Repositories\Interfaces\AbstractRepositoryInterface";
+
+    protected $transformer = "Matthewbdaly\Harmony\Transformers\BaseTransformer";
 }
