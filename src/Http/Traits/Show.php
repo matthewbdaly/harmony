@@ -14,7 +14,7 @@ trait Show
      */
     protected function getShowData($id)
     {
-        $resource = new Item($this->getQuerysetById($id), new $this->transformer);
+        $resource = new Item($this->getQuerysetById($id), $this->transformer);
         return $this->fractal->createData($resource);
     }
 

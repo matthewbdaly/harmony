@@ -13,7 +13,7 @@ trait Index
      */
     protected function getIndexData()
     {
-        $resource = new Collection($this->getQueryset(), new $this->transformer);
+        $resource = new Collection($this->getQueryset(), $this->transformer);
         return $this->fractal->createData($resource);
     }
 
