@@ -64,15 +64,16 @@ abstract class RestfulController extends BaseController
      * Render response as either JSON or HTML
      *
      * @param Scope $data The data to render.
+     * @param integer   $status The status code to return.
      * @return Illuminate\Http\Response
      */
-    protected function renderResponse(Scope $data)
+    protected function renderResponse(Scope $data, int $status = 200)
     {
         $request = request();
         if ($request->ajax()) {
-            return response()->json($data->toArray());
+            return response()->json($data->toArray(), $status);
         } else {
-            return view('harmony::base', ['data' => $data->toJson()]);
+            return response()->view('harmony::base', ['data' => $data->toJson()], $status);
         }
     }
 }
