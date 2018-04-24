@@ -2,7 +2,7 @@
 
 namespace Matthewbdaly\Harmony\Http\Traits;
 
-use League\Fractal\Resource\Item;
+use League\Fractal\Resource\Collection;
 use Illuminate\Http\Request;
 
 trait Delete
@@ -14,7 +14,7 @@ trait Delete
      */
     protected function getDeletedData()
     {
-        $resource = new Item([], $this->transformer);
+        $resource = new Collection([], $this->transformer);
         return $this->fractal->createData($resource);
     }
 
