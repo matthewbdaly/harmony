@@ -11,5 +11,5 @@ class DummyController extends RestfulController
 
     protected $repository = "Matthewbdaly\LaravelRepositories\Repositories\Interfaces\AbstractRepositoryInterface";
 
-    protected $transformer = "Matthewbdaly\Harmony\Transformers\BaseTransformer";
+    protected $transformer = "Tests\Unit\Http\Controllers\DummyTransformer";
 }
