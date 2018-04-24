@@ -8,7 +8,7 @@ use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 
 class TestCase extends BaseTestCase
 {
-    use MockeryPHPUnitIntegration;
+    use CreatesApplication, MockeryPHPUnitIntegration;
 
     public function assertParentHasTrait($trait, $class, $message = '')
     {
