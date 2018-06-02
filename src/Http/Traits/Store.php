@@ -14,6 +14,6 @@ trait Store
     public function store()
     {
         $request = app()->make($this->createRequest);
-        return response()->json($this->repository->create($request->all()));
+        return response()->json($this->repository->create($request->all()), 201);
     }
 }

@@ -15,7 +15,7 @@ trait Update
      */
     public function update(Request $request, $id)
     {
-        $request = app()->make($this->editRequest);
+        $request = app()->make($this->updateRequest);
         $item = $this->getQuerysetById($id);
         $item->update($request->all());
         return json($item, 200);
