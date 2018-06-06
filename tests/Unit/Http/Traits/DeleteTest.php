@@ -18,10 +18,8 @@ class DeleteTest extends TestCase
     public function testDelete()
     {
         $fractal = $this->app->make('League\Fractal\Manager');
-        $model = m::mock('Illuminate\Database\Eloquent\Model');
-        $model->shouldReceive('delete')->once();
         $repo = m::mock('Matthewbdaly\LaravelRepositories\Repositories\Interfaces\AbstractRepositoryInterface');
-        $repo->shouldReceive('findOrFail')->with(1)->once()->andReturn($model);
+        $repo->shouldReceive('delete')->with(1)->once()->andReturn(true);
         $request = Request::create('http://example.com', 'DELETE');
         $controller = new DummyController($fractal, $repo);
         $response = $controller->delete($request, 1); 

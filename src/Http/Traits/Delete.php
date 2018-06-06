@@ -27,8 +27,7 @@ trait Delete
      */
     public function delete(Request $request, $id)
     {
-        $item = $this->getQuerysetById($id);
-        $item->delete();
+        $this->repository->delete($id);
         return $this->renderResponse($this->getDeletedData(), 204);
     }
 }
